@@ -1,0 +1,35 @@
+<form>
+    <div class="form-group">
+        <label>Title</label>
+        <input type=text name="title" [(ngModel)]="listName" class="form-control" >
+      </div>
+      <div class="form-group">
+          <label>Item</label>
+          <input type=text name="item" [(ngModel)]="item" class="form-control" >
+        </div>
+      
+    <button (click)="addItem()" class="btn btn-success">Add</button>
+
+    <div class="row">
+        <ul class="list-group">
+          <li *ngFor="let toDoItem of toDoList;index as i" class="list-group-item">
+            <div class='col col-lg-3'>  
+              <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" name="chk_{{i}}"  [(ngModel)]="toDoItem.done">
+                  </div>
+              </div>
+            </div>
+            <div class="col col-lg-6">
+              <span [class.cut-text]="toDoItem.done">{{toDoItem.text}}</span>
+            </div>  
+            <div class="col col-lg-3">
+              <button type="button" (click)="removeItem(i)">x</button>
+            </div>
+          </li>
+        </ul>  
+      </div>
+
+      <button *ngIf="toDoList.length>0" (click)="save()" class="btn btn-success">Save</button>
+
+</form>

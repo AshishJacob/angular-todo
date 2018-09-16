@@ -1,0 +1,15 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col col-lg-3 col-lg-offset-3">
+            <button type="button" (click)="create()">New</button>
+        </div>
+        <div class="col col-lg-3">
+           <button type="button" (click)="view()">View</button>
+        </div>
+</div>
+
+
+<app-create *ngIf="createMode"></app-create>
+<app-list *ngIf="!createMode"></app-list>
+</div>

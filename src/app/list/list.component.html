@@ -1,0 +1,14 @@
+<div class="col col-lg-3" *ngFor="let toDoList of allList">
+    <h2>{{toDoList.title}}</h2>
+    <ul class="list-group">
+      <li *ngFor="let toDoItem of toDoList.toDoItem;index as i" class="list-group-item">
+          <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="checkbox" name="chk_{{i}}" [(ngModel)]="toDoItem.done">
+              </div>
+          </div>
+          <span [class.cut-text]="toDoItem.done">{{toDoItem.text}}</span>
+          <button type="button" (click)="removeItem(toDoItem, i)">x</button>
+      </li>
+    </ul>  
+  </div>
